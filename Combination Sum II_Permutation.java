@@ -8,7 +8,7 @@ public class Solution {
         return res;
     }
     public void helper(ArrayList<ArrayList<Integer>> res, ArrayList<Integer> item, int pos, int[] num, int target){
-        if(target < 0) return;
+        if(target < 0 || pos >= num.length) return;
         if(target == 0){
             res.add(new ArrayList<Integer>(item));
             return;
