@@ -4,40 +4,31 @@ public class Solution {
         if (A.length == 0 || target < A[0] || target > A[A.length-1]) {
             return res;
         }
-        int l = 0;
-        int r = A.length-1;
-        while (l < r) {
-            int m = l + (r - l)/2;
+        int ll = 0;
+        int lr = A.length-1;
+        while (ll <= lr) {
+            int m = ll + (lr - ll)/2;
             if(A[m] < target) {
-                l = m+1;
+                ll = m+1;
             }else{
-                r = m;
+                lr = m-1;
             }
         }
-        int lower = 0;
-        if (A[l] != target) {
-            return res;
-        } else {
-            lower = l;
-        }
-        l = 0;
-        r = A.length - 1;
-        while (l < r) {
-            int m = l + (r - l)/2;
+        
+        int rl = 0;
+        int rr = A.length - 1;
+        while (rl <= rr) {
+            int m = rl + (rr - rl)/2;
             if(A[m] < target+1) {
-                l = m+1;
+                rl = m+1;
             } else { 
-                r = m;
+                rr = m-1;
             }
         }
-        int upper = 0;
-        if (A[l] != target) {
-            upper = l-1;
-        } else {
-            upper = l;
+        if (ll <= rr) {
+            res[0] = ll;
+            res[1] = rr;
         }
-        res[0] = lower;
-        res[1] = upper;
         return res;
     }
 }
