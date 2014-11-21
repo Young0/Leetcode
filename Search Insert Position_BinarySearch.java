@@ -1,4 +1,7 @@
 //try to use binary search
+//By using this approach, if we can not find the target, 
+//the left must stop at the index whose value is greater than the target, 
+//and the right must stop at the index whose value is smaller than the target.
 public class Solution {
     public int searchInsert(int[] A, int target) {
        if(A.length == 0 || A == null) return 0;
